@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduQuest - Gamified Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">🎓 EduQuest</h1>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem;">Gamified Learning for Rural Education</p>
+        </header>
+
+        <div class="user-stats">
+            <div class="stat-card">
+                <div class="stat-value" id="level">1</div>
+                <div class="stat-label">Level</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="xp">0</div>
+                <div class="stat-label">XP</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="coins">100</div>
+                <div class="stat-label">🪙 Coins</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="streak">0</div>
+                <div class="stat-label">🔥 Streak</div>
+            </div>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+            <div class="subject-card" onclick="startQuiz('math')">
+                <span class="subject-icon">🔢</span>
+                <h3 class="subject-title">Mathematics</h3>
+                <p style="opacity: 0.8;">Master numbers and calculations</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%"></div>
+                </div>
+                <small style="opacity: 0.7;">65% Complete</small>
+            </div>
+
+            <div class="subject-card" onclick="startQuiz('science')">
+                <span class="subject-icon">🔬</span>
+                <h3 class="subject-title">Science</h3>
+                <p style="opacity: 0.8;">Explore the natural world</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%"></div>
+                </div>
+                <small style="opacity: 0.7;">45% Complete</small>
+            </div>
+
+            <div class="subject-card" onclick="startQuiz('english')">
+                <span class="subject-icon">📚</span>
+                <h3 class="subject-title">English</h3>
+                <p style="opacity: 0.8;">Improve language skills</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%"></div>
+                </div>
+                <small style="opacity: 0.7;">80% Complete</small>
+            </div>
+
+            <div class="subject-card" onclick="startQuiz('history')">
+                <span class="subject-icon">🏛️</span>
+                <h3 class="subject-title">History</h3>
+                <p style="opacity: 0.8;">Journey through time</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%"></div>
+                </div>
+                <small style="opacity: 0.7;">30% Complete</small>
+            </div>
+
+            <div class="subject-card" onclick="startQuiz('geography')">
+                <span class="subject-icon">🌍</span>
+                <h3 class="subject-title">Geography</h3>
+                <p style="opacity: 0.8;">Discover our planet</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%"></div>
+                </div>
+                <small style="opacity: 0.7;">55% Complete</small>
+            </div>
+
+            <div class="subject-card" onclick="startQuiz('agriculture')">
+                <span class="subject-icon">🌾</span>
+                <h3 class="subject-title">Agriculture</h3>
+                <p style="opacity: 0.8;">Rural farming techniques</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%"></div>
+                </div>
+                <small style="opacity: 0.7;">70% Complete</small>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2 style="color: white; text-align: center; margin-bottom: 20px;" id="quizSubject"></h2>
+            <div class="quiz-question" id="quizQuestion"></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <button class="btn" onclick="nextQuestion()" id="nextBtn" style="display: none;">Next Question</button>
+            <button class="btn" onclick="endQuiz()" id="endBtn" style="display: none;">Back to Dashboard</button>
+        </div>
+
+        <div class="leaderboard">
+            <h3 class="leaderboard-title">🏆 Village Leaderboard</h3>
+            <div class="leaderboard-item">
+                <span>🥇 Priya Sharma</span>
+                <span>2,850 XP</span>
+            </div>
+            <div class="leaderboard-item">
+                <span>🥈 Rahul Kumar</span>
+                <span>2,720 XP</span>
+            </div>
+            <div class="leaderboard-item">
+                <span>🥉 Anjali Patel</span>
+                <span>2,650 XP</span>
+            </div>
+            <div class="leaderboard-item">
+                <span>4️⃣ You</span>
+                <span id="userXP">0 XP</span>
+            </div>
+            <div class="leaderboard-item">
+                <span>5️⃣ Vikram Singh</span>
+                <span>1,890 XP</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="achievement-popup" id="achievementPopup">
+        <div class="achievement-icon">🏆</div>
+        <h3 id="achievementTitle"></h3>
+        <p id="achievementDesc"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
